@@ -1,0 +1,16 @@
+:root {
+  --primary-color: 0 80% 81%; /* Pink */
+  --secondary-color: hsl(340, 100%, 97%); /* Lavender Blush */
+  --accent-color: hsl(328, 100%, 54%); /* Deep Pink */
+  --text-color: hsl(0, 0%, 20%); /* Dark Gray */
+  --link-color-hover: 0 100% 72%; /* Light Pink */
+  --background-color: 0 0% 100%; /* White */
+  --font-family-heading: 'Fraunces', serif;
+  --font-family-body: 'Libre Caslon Text', serif;
+  --font-size: 16px;
+  --border-radius: 8px;
+  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+  --max-width: 1200px;
+  --alpha: 1;
+}

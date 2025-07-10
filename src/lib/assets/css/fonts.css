@@ -1,0 +1,61 @@
+/* fraunces-200 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 200;
+  src: url('/fonts/fraunces-v37-latin-200.woff2') format('woff2'),
+       url('/fonts/fraunces-v37-latin-200.ttf') format('truetype');
+}
+
+/* fraunces-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/fraunces-v37-latin-regular.woff2') format('woff2'),
+       url('/fonts/fraunces-v37-latin-regular.ttf') format('truetype');
+}
+
+/* fraunces-700 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/fraunces-v37-latin-700.woff2') format('woff2'),
+       url('/fonts/fraunces-v37-latin-700.ttf') format('truetype');
+}
+
+
+/* libre-caslon-text-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Libre Caslon Text';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/libre-caslon-text-v5-latin-regular.woff2') format('woff2'),
+       url('/fonts/libre-caslon-text-v5-latin-regular.ttf') format('truetype');
+}
+
+/* libre-caslon-text-italic - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Libre Caslon Text';
+  font-style: italic;
+  font-weight: 400;
+  src: url('/fonts/libre-caslon-text-v5-latin-italic.woff2') format('woff2'),
+       url('/fonts/libre-caslon-text-v5-latin-italic.ttf') format('truetype');
+}
+
+/* libre-caslon-text-700 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Libre Caslon Text';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/libre-caslon-text-v5-latin-700.woff2') format('woff2'),
+       url('/fonts/libre-caslon-text-v5-latin-700.ttf') format('truetype');
+}
+
