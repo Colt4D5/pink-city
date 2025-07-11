@@ -37,10 +37,11 @@
     &::before, &::after {
       content: '';
       position: absolute;
-      left: 0;
-      width: 100%;
+      left: -1rem;
+      width: calc(100% + 1rem);
       height: 0.75rem;
       border-style: solid;
+      border-color: transparent;
       border-top-color: hsl(var(--background-color));
       border-bottom-color: hsl(var(--background-color));
     }

@@ -24,7 +24,7 @@
     background-repeat: no-repeat;
   }
   main {
-    padding-top: 6rem; /* Adjust based on header height */
-    padding-bottom: 4rem; /* Adjust based on footer height */
+    /* padding-top: 6rem; */
+    padding-bottom: 4rem;
   }
 </style>
