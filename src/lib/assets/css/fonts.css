@@ -1,4 +1,4 @@
-/* fraunces-200 - latin */
+/* fraunces-200 */
 @font-face {
   font-display: swap;
   font-family: 'Fraunces';
@@ -8,7 +8,7 @@
        url('/fonts/fraunces-v37-latin-200.ttf') format('truetype');
 }
 
-/* fraunces-regular - latin */
+/* fraunces-regular */
 @font-face {
   font-display: swap;
   font-family: 'Fraunces';
@@ -18,7 +18,7 @@
        url('/fonts/fraunces-v37-latin-regular.ttf') format('truetype');
 }
 
-/* fraunces-700 - latin */
+/* fraunces-700 */
 @font-face {
   font-display: swap;
   font-family: 'Fraunces';
@@ -29,7 +29,7 @@
 }
 
 
-/* libre-caslon-text-regular - latin */
+/* libre-caslon-text-regular */
 @font-face {
   font-display: swap;
   font-family: 'Libre Caslon Text';
@@ -39,7 +39,7 @@
        url('/fonts/libre-caslon-text-v5-latin-regular.ttf') format('truetype');
 }
 
-/* libre-caslon-text-italic - latin */
+/* libre-caslon-text-italic */
 @font-face {
   font-display: swap;
   font-family: 'Libre Caslon Text';
@@ -49,7 +49,7 @@
        url('/fonts/libre-caslon-text-v5-latin-italic.ttf') format('truetype');
 }
 
-/* libre-caslon-text-700 - latin */
+/* libre-caslon-text-700 */
 @font-face {
   font-display: swap;
   font-family: 'Libre Caslon Text';
@@ -59,3 +59,11 @@
        url('/fonts/libre-caslon-text-v5-latin-700.ttf') format('truetype');
 }
 
+/* damionregular */
+@font-face {
+    font-family: 'Damion Regular';
+    src: url('/fonts/damion-regular-webfont.woff2') format('woff2'),
+         url('/fonts/damion-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
