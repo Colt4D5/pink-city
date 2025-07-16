@@ -22,10 +22,10 @@
       columns: 200px;
       .cake {
         overflow: hidden;
-        border-radius: 8px;
         img {
           object-fit: cover;
           width: 100%;
+          border-radius: 8px;
           transition: transform 0.3s ease-in-out;
         }
         &:hover img {
