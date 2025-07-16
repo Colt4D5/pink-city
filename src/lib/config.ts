@@ -103,9 +103,9 @@ export const config = {
   menu: {
     items: [
       { label: 'Home', path: '#body-top', hidden: true },
-      { label: 'Gallery', path: '#gallery' },
       { label: 'Flavors', path: '#flavors' },
-      { label: 'Instagram', path: '#instagram' },
+      { label: 'Gallery', path: '#gallery' },
+      { label: 'Instagram', path: '#instagram', hidden: true },
       { label: 'Contact', path: '#contact' },
     ],
   }

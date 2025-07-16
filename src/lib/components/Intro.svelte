@@ -42,7 +42,7 @@
       .intro-text {
         background-color: hsl(var(--primary-color) / 1);
         padding: 2rem 1rem;
-        max-width: 350px;
+        max-width: 400px;
         h2 {
           margin-top: 0;
           margin-bottom: 2rem;
@@ -60,7 +60,7 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background-color: var(--text-color);
+            background-color: hsl(var(--text-color));
             z-index: 1;
           }
         }
