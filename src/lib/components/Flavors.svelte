@@ -58,6 +58,7 @@
     background-color: hsl(var(--primary-color) / 0.8);
     margin-block: 6rem;
     .inner {
+      padding-bottom: 6rem;
       #title-container {
         text-align: center;
         width: min(100%, 400px);
