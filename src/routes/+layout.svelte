@@ -16,7 +16,6 @@
 
 <Footer {config} />
 
-<!-- make a widget in the bottom right corner that scrolls to the top of the page -->
 <div class="scroll-to-top">
   <a href="#body-top" aria-label="Scroll to top">
     <svg fill="currentColor" height="20" width="20" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
