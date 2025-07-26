@@ -19,7 +19,7 @@ importers:
         specifier: ^9.18.0
         version: 9.30.1
       '@sveltejs/adapter-netlify':
-        specifier: ^5.0.0
+        specifier: ^5.0.2
         version: 5.0.2(@sveltejs/kit@2.22.4(@sveltejs/vite-plugin-svelte@5.1.0(svelte@5.35.5)(vite@6.3.5))(svelte@5.35.5)(vite@6.3.5))
       '@sveltejs/kit':
         specifier: ^2.16.0
