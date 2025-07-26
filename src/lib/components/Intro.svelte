@@ -19,21 +19,33 @@
 
 <style>
   #intro {
-    padding-top: 1rem;
-    padding-bottom: 10rem;
+    padding: 1rem 0.5rem;
+    padding-bottom: 4rem;
+    @media (min-width: 768px) {
+      padding-bottom: 10rem;
+    }
     .inner {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
+      width: min(100%, 850px);
+      margin-inline: auto;
+      @media (min-width: 768px) {
+        flex-direction: row;
+      }
       .image-wrapper {
         position: relative;
+        width: min(100%, 550px);
+        img {
+          width: 100%;
+        }
         &::before {
           content: '';
           position: absolute;
           top: 75%;
           left: 50%;
-          width: 550px;
-          height: 250px;
+          width: 100%;
           transform: translateX(-50%);
           background-color: hsl(255 255 255 / 0.5);
           z-index: -1;
@@ -46,7 +58,7 @@
         h2 {
           margin-top: 0;
           margin-bottom: 2rem;
-          font-size: 2.5rem;
+          font-size: clamp(1.25rem, 3vw, 2.5rem);
           text-align: center;
           text-transform: uppercase;
           position: relative;

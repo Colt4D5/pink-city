@@ -82,19 +82,38 @@
         width: min(100%, 1000px);
         margin: 0 auto 5rem;
         text-align: center;
+        .flavor {
+          width: min(40%, 250px);
+          @media (min-width: 768px) {
+            width: auto;
+          }
+        }
         &:has(.flavor.cake) {
-          gap: 2rem;
+          gap: 1rem;
+          @media (min-width: 768px) {
+            gap: 2rem;
+          }
           img {
-            max-width: 250px;
+            max-width: 145px;
+            @media (min-width: 768px) {
+              max-width: 250;
+            }
           }
         }
         &:has(.flavor.filling) {
           gap: 1rem;
+          @media (min-width: 768px) {
+            gap: 2rem;
+          }
           img {
-            max-width: 200px;
+            max-width: 125px;
+            @media (min-width: 768px) {
+              max-width: 200;
+            }
           }
         }
         p {
+          font-size: clamp(0.8em, 2vw, 1.2em);
           text-wrap: balance;
         }
       }

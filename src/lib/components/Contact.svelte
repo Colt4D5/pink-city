@@ -208,7 +208,7 @@
     background-color: hsl(var(--background-color) / 0.4);
     .inner {
       width: min(100%, 675px);
-      padding: 2rem;
+      padding: clamp(0.5rem, 2vw, 2rem);
       margin: 0 auto;
       p {
         margin: 0;

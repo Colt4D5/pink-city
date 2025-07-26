@@ -47,6 +47,7 @@
   main {
     /* padding-top: 6rem; */
     padding-bottom: 4rem;
+    width: 100vw;
   }
   .scroll-to-top {
     position: fixed;

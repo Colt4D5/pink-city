@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build and Preview Pink City Cake Studio",
+			"type": "shell",
+			"command": "pnpm build && pnpm preview",
+			"group": "build",
+			"isBackground": true,
+			"problemMatcher": []
+		}
+	]
+}

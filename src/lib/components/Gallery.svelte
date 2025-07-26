@@ -103,7 +103,6 @@
         >
           <img 
             src={`/images/cake-images/pinkcitycake-${index + 1}.webp`} 
-            height={Math.random() * 200 + 150} 
             width="100%" 
             alt="Pink City Cake Studio | Moreno Valley, CA"
             draggable="false"
@@ -160,10 +159,32 @@
   #gallery {
     margin: 10rem 0;
     .inner {
-      /* max-width: 1200px; */
+      /* width: min(100%, 1200px); */
       margin: 0 auto;
       padding: 0 1rem;
-      columns: 200px;
+      columns: 1;
+      column-gap: clamp(0.25rem, 3vw, 1rem);
+      @media (min-width: 320px) {
+        columns: 2;
+      }
+      @media (min-width: 480px) {
+        columns: 3;
+      }
+      @media (min-width: 768px) {
+        columns: 4;
+      }
+      @media (min-width: 1024px) {
+        columns: 5;
+      }
+      @media (min-width: 1280px) {
+        columns: 6;
+      }
+      @media (min-width: 1536px) {
+        columns: 7;
+      }
+      @media (min-width: 1920px) {
+        columns: 8;
+      }
       .cake {
         overflow: hidden;
         img {
@@ -230,7 +251,7 @@
     z-index: 1001;
 
     &:hover {
-      background: white;
+      background-color: white;
       transform: scale(1.1);
     }
 
@@ -259,7 +280,7 @@
     z-index: 1001;
 
     &:hover {
-      background: white;
+      background-color: white;
       transform: translateY(-50%) scale(1.1);
     }
 

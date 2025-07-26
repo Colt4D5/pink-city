@@ -36,7 +36,7 @@
 <style>
   footer {
     --alpha: 0.4;
-    --line-inset: 0.75rem;
+    --line-inset: 0.5rem;
     background-color: hsl(var(--background-color) / var(--alpha));
     color: hsl(var(--text-color));
     padding: 2rem 1rem 3rem;
@@ -46,23 +46,18 @@
     &::before, &::after {
       content: '';
       position: absolute;
-      left: -1rem;
-      width: calc(100% + 1rem);
-      height: 0.75rem;
-      border-style: solid;
-      border-color: transparent;
-      border-top-color: hsl(var(--background-color));
-      border-bottom-color: hsl(var(--background-color));
+      left: 0;
+      width: 100%;
+      height: 0.25rem;
+      background-color: #fff;
     }
     &::before {
       top: var(--line-inset);
-      border-top-width: 4px;
-      border-bottom-width: 2px;
+      box-shadow: 0 12px 0 -1px #fff;
     }
     &::after {
       bottom: var(--line-inset);
-      border-top-width: 2px;
-      border-bottom-width: 4px;
+      box-shadow: 0 -12px 0 -1px #fff;
     }
     .inner {
       width: min(800px, 100%);
@@ -70,15 +65,30 @@
       color: hsl(var(--text-color));
       #awards-container {
         display: grid;
-        grid-template-columns: 100px 1fr 100px;
+        grid-template-columns: 1fr;
         align-items: center;
         justify-items: center;
         gap: 1rem;
         margin-bottom: 1rem;
+        @media (min-width: 768px) {
+          grid-template-columns: 100px 1fr 100px;
+        }
+        .left {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          @media (min-width: 768px) {
+            flex-direction: column;
+          }
+        }
         #verse-container {
           font-size: 1.5rem;
           background-color: hsl(var(--primary-color) / 1);
           padding: 1rem 3rem;
+          order: -1;
+          @media (min-width: 768px) {
+            order: 0;
+          }
           p {
             margin: 0;
             text-wrap: balance;
