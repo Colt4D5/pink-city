@@ -1,4 +1,5 @@
 <script lang="ts">
+  export const prerender = true;
 	import { config } from "$lib/config";
 	import toast, { Toaster } from 'svelte-french-toast';
 
