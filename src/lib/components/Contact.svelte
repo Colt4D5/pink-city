@@ -2,7 +2,6 @@
 	import { config } from "$lib/config";
 	import toast, { Toaster } from 'svelte-french-toast';
 
-  let form: HTMLFormElement;
   let imageInputs = $state([1]);
   let uploadedFiles = $state<Record<number, File | null>>({});
   const maxInputs = 5;
@@ -93,9 +92,10 @@
       return;
     }
 
-    const myForm = form;
+    const myForm = event.currentTarget as HTMLFormElement | null;
+    if (!myForm) return;
+
     const formData = new FormData(myForm);
-    console.log("Form data entries:", Array.from(formData.entries()));
 
     fetch("/", {
       method: "POST",
@@ -119,7 +119,7 @@
     <p>Fill out the form below and one of our reps will contact you shortly!</p>
     <p class="text-phone text-primary text-xl">{config.contact.phone.numberFormatted}</p>
 
-    <form id="contact-form" name="contact" method="POST" enctype="multipart/form-data" data-netlify="true" {onsubmit} bind:this={form}>
+    <form id="contact-form" name="contact" method="POST" enctype="multipart/form-data" data-netlify="true" {onsubmit}>
       <!-- <input type="hidden" name="form-name" value="contact" /> -->
       <fieldset>
         <legend class="text-center">Inquire</legend>
