@@ -95,6 +95,7 @@
 
     const myForm = form;
     const formData = new FormData(myForm);
+    console.log("Form data entries:", Array.from(formData.entries()));
 
     fetch("/", {
       method: "POST",
@@ -119,7 +120,7 @@
     <p class="text-phone text-primary text-xl">{config.contact.phone.numberFormatted}</p>
 
     <form id="contact-form" name="contact" method="POST" enctype="multipart/form-data" data-netlify="true" {onsubmit} bind:this={form}>
-      <input type="hidden" name="form-name" value="contact" />
+      <!-- <input type="hidden" name="form-name" value="contact" /> -->
       <fieldset>
         <legend class="text-center">Inquire</legend>
         <div class="form-group">
