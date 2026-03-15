@@ -99,7 +99,7 @@
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString()
+      body: JSON.stringify(Object.fromEntries(formData.entries()))
     })
       .then(() => {
         console.log("Form successfully submitted");
