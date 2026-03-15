@@ -96,16 +96,19 @@
     const myForm = form;
     const formData = new FormData(myForm);
 
-    const res = await fetch("/", {
+    fetch("/", {
       method: "POST",
-      body: formData
-    });
-
-    if (res.ok) {
-      toast.success("Form successfully submitted!");
-    } else {
-      toast.error("Error submitting form");
-    }
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString()
+    })
+      .then(() => {
+        console.log("Form successfully submitted");
+        toast.success("Form successfully submitted!");
+      })
+      .catch(error => {
+        toast.error("Error submitting form");
+        console.error(error);
+      });
   };
 </script>
 
