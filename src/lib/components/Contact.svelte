@@ -89,33 +89,14 @@
     return true;
   }
 
-  async function onsubmit(event: SubmitEvent) {
-    event.preventDefault();
-
+  function onsubmit(event: SubmitEvent) {
+    // Only block submit when validation fails.
     if (getTotalUploadSize(uploadedFiles) > maxTotalUploadSize) {
+      event.preventDefault();
       const maxTotalMB = maxTotalUploadSize / (1024 * 1024);
       toast.error(`Total upload size exceeds ${maxTotalMB}MB. Please remove a file or choose smaller images.`);
-      return;
     }
-
-    const myForm = event.currentTarget as HTMLFormElement | null;
-    if (!myForm) return;
-
-    const formData = new FormData(myForm);
-
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: JSON.stringify(Object.fromEntries(formData.entries()))
-    })
-      .then(() => {
-        console.log("Form successfully submitted");
-        toast.success("Form successfully submitted!");
-      })
-      .catch(error => {
-        toast.error("Error submitting form");
-        console.error(error);
-      });
+    // otherwise allow native submit so Netlify can process the form
   };
 </script>
 
@@ -129,11 +110,16 @@
       id="contact-form"
       name="contact"
       method="POST"
+      action="/thank-you"
       enctype="multipart/form-data"
       data-netlify="true"
+      netlify-honeypot="bot-field"
       {onsubmit}
     >
       <input type="hidden" name="form-name" value="contact" />
+      <p hidden>
+        <label>Don’t fill this out: <input name="bot-field" /></label>
+      </p>
       <fieldset>
         <legend class="text-center">Inquire</legend>
         <div class="form-group">
