@@ -1,12 +1,18 @@
 <script lang="ts">
 	import { config } from "$lib/config";
+	import { onMount } from 'svelte';
 	import toast, { Toaster } from 'svelte-french-toast';
 
+  let showToaster = $state(false);
   let imageInputs = $state([1]);
   let uploadedFiles = $state<Record<number, File | null>>({});
   const maxInputs = 5;
   const maxFileSize = 5 * 1024 * 1024; // 5MB in bytes
   const maxTotalUploadSize = 8 * 1024 * 1024; // Netlify form request limit: 8MB
+
+  onMount(() => {
+    showToaster = true;
+  });
 
   function getTotalUploadSize(files: Record<number, File | null>): number {
     return Object.values(files).reduce((total, file) => total + (file?.size ?? 0), 0);
@@ -119,8 +125,15 @@
     <p>Fill out the form below and one of our reps will contact you shortly!</p>
     <p class="text-phone text-primary text-xl">{config.contact.phone.numberFormatted}</p>
 
-    <form id="contact-form" name="contact" method="POST" enctype="multipart/form-data" data-netlify="true" {onsubmit}>
-      <!-- <input type="hidden" name="form-name" value="contact" /> -->
+    <form
+      id="contact-form"
+      name="contact"
+      method="POST"
+      enctype="multipart/form-data"
+      data-netlify="true"
+      {onsubmit}
+    >
+      <input type="hidden" name="form-name" value="contact" />
       <fieldset>
         <legend class="text-center">Inquire</legend>
         <div class="form-group">
@@ -225,7 +238,9 @@
   </div>
 </section>
 
-<Toaster position="top-right" />
+{#if showToaster}
+  <Toaster position="top-right" />
+{/if}
 
 
 <style>
