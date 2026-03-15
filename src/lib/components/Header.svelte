@@ -61,7 +61,7 @@
       <ul class="desktop-nav">
         {#each config.menu.items as item}
           {#if !item.hidden}
-            <li><a href={item.path}>{item.label}</a></li>
+            <li><a href={item.path.startsWith('#') ? `/${item.path}` : item.path}>{item.label}</a></li>
           {/if}
         {/each}
       </ul>
@@ -76,7 +76,7 @@
         </li>
         {#each config.menu.items as item}
           {#if !item.hidden}
-            <li><a href={item.path} onclick={closeMobileMenu}>{item.label}</a></li>
+            <li><a href={item.path.startsWith('#') ? `/${item.path}` : item.path} onclick={closeMobileMenu}>{item.label}</a></li>
           {/if}
         {/each}
       </ul>
