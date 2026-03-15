@@ -7,6 +7,11 @@
   let uploadedFiles = $state<Record<number, File | null>>({});
   const maxInputs = 5;
   const maxFileSize = 5 * 1024 * 1024; // 5MB in bytes
+  const maxTotalUploadSize = 8 * 1024 * 1024; // Netlify form request limit: 8MB
+
+  function getTotalUploadSize(files: Record<number, File | null>): number {
+    return Object.values(files).reduce((total, file) => total + (file?.size ?? 0), 0);
+  }
 
   function addImageInput() {
     if (imageInputs.length < maxInputs) {
@@ -29,6 +34,18 @@
     
     if (file) {
       if (checkFileSize(inputId, file)) {
+        const nextFiles = { ...uploadedFiles, [inputId]: file };
+
+        if (getTotalUploadSize(nextFiles) > maxTotalUploadSize) {
+          const maxTotalMB = maxTotalUploadSize / (1024 * 1024);
+          toast.error(`Total upload size exceeds ${maxTotalMB}MB. Please remove a file or choose a smaller image.`);
+
+          target.value = '';
+          uploadedFiles[inputId] = null;
+          uploadedFiles = { ...uploadedFiles };
+          return;
+        }
+
         uploadedFiles[inputId] = file;
         uploadedFiles = { ...uploadedFiles };
       } else {
@@ -67,17 +84,21 @@
     return true;
   }
 
-  async function onsubmit(event: { preventDefault: () => void; target: any; }) {
+  async function onsubmit(event: SubmitEvent) {
     event.preventDefault();
+
+    if (getTotalUploadSize(uploadedFiles) > maxTotalUploadSize) {
+      const maxTotalMB = maxTotalUploadSize / (1024 * 1024);
+      toast.error(`Total upload size exceeds ${maxTotalMB}MB. Please remove a file or choose smaller images.`);
+      return;
+    }
 
     const myForm = form;
     const formData = new FormData(myForm);
-    const data = Array.from(formData.entries()).map(([k, v]) => [k, typeof v === 'string' ? v : String(v)]);
 
     const res = await fetch("/", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(data).toString()
+      body: formData
     });
 
     if (res.ok) {
@@ -94,7 +115,8 @@
     <p>Fill out the form below and one of our reps will contact you shortly!</p>
     <p class="text-phone text-primary text-xl">{config.contact.phone.numberFormatted}</p>
 
-    <form id="contact-form" name="contact" method="POST" data-netlify="true" {onsubmit} bind:this={form}>
+    <form id="contact-form" name="contact" method="POST" enctype="multipart/form-data" data-netlify="true" {onsubmit} bind:this={form}>
+      <input type="hidden" name="form-name" value="contact" />
       <fieldset>
         <legend class="text-center">Inquire</legend>
         <div class="form-group">
@@ -140,7 +162,7 @@
           </p>
         </div>
         <h3 class="text-center">Inspo pics? Upload here!</h3>
-        {#each imageInputs as inputId, index}
+        {#each imageInputs as inputId, index (inputId)}
           <div class="form-group images-upload">
             <div class="image-input-group">
               <p class="form-input">
